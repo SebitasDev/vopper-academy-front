@@ -28,8 +28,7 @@ const GroupOptionsInMenu = () => {
                                 padding: "12px 0",
 
                                 [themeMUI.breakpoints.down("sm")]: {
-                                    justifyContent: "space-evenly",
-                                    gap: "8px",
+                                    gap: "0px",
                                 },
                             }}
                         >
