@@ -36,7 +36,7 @@ const OptionMenu = ({ name, icon } : props ) => {
                     [themeMUI.breakpoints.down("sm")]: {
                         flexDirection: "column",
                         alignItems: "center",
-                        padding: "8px 16px",
+                        padding: "8px 10px",
                         marginBottom: 0,
                         justifyContent: "space-around",
                     },
