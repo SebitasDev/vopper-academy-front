@@ -1,6 +1,7 @@
 ﻿import {createRootRoute, createRoute, createRouter, Outlet} from "@tanstack/react-router";
 import Home from "../components/pages/Home.tsx";
 import {TanStackRouterDevtools} from "@tanstack/router-devtools";
+import Platforms from "../components/pages/Platforms.tsx";
 
 const rootRoute = createRootRoute({
     component: () => (
@@ -17,6 +18,12 @@ const homeRoute = createRoute({
     component: Home
 });
 
+const platformsRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/plataformas',
+    component: Platforms
+});
+
 const notFoundRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '*',
@@ -29,6 +36,7 @@ const notFoundRoute = createRoute({
 
 const routeTree = rootRoute.addChildren([
     homeRoute,
+    platformsRoute,
     notFoundRoute
 ]);
 

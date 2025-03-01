@@ -1,7 +1,7 @@
-﻿import {ListItem, ListItemIcon, ListItemText, useTheme} from "@mui/material";
+﻿import {ListItem, ListItemIcon, ListItemText} from "@mui/material";
 import {JSX} from "react";
 import {theme} from "../../styles/theme.ts";
-//import {theme} from "../../styles/theme.ts";
+import {useOptionMenu} from "../../hooks/sidebar-hooks/useOptionMenu.ts";
 
 type props = {
     name: string,
@@ -10,7 +10,7 @@ type props = {
 
 const OptionMenu = ({ name, icon } : props ) => {
 
-    const themeMUI = useTheme();
+    const { actualRoute, goTo } = useOptionMenu(name);
 
     return (
         <>
@@ -28,27 +28,15 @@ const OptionMenu = ({ name, icon } : props ) => {
                     borderRadius: 3,
                     marginBottom: 1.5,
                     color: "white",
+                    backgroundColor: actualRoute && theme.colors.primary,
                     transition: "background 0.3s ease",
                     "&:hover": {
                         backgroundColor: theme.colors.primary,
                     },
-
-                    [themeMUI.breakpoints.down("sm")]: {
-                        flexDirection: "column",
-                        alignItems: "center",
-                        padding: "8px 10px",
-                        marginBottom: 0,
-                        justifyContent: "space-around",
-                    },
                 }}
+                onClick={() => goTo()}
             >
-                <ListItemIcon
-                    sx={{
-                        [themeMUI.breakpoints.down("sm")]: {
-                            minWidth: 0,
-                        },
-                    }}
-                >{icon}</ListItemIcon>
+                <ListItemIcon>{icon}</ListItemIcon>
                 <ListItemText primary={name} />
             </ListItem>
         </>
