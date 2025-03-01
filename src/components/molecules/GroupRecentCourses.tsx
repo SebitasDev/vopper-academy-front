@@ -40,11 +40,15 @@ const GroupRecentCourses = () => {
                 sx={{
                     display: "flex",
                     gap: 3,
-                    overflow: "hidden",
+                    overflowX: "auto",
                     scrollBehavior: "smooth",
                     whiteSpace: "nowrap",
                     padding: "10px",
                     flexWrap: "nowrap",
+                    /* Ocultar scrollbar */
+                    "&::-webkit-scrollbar": { display: "none" },
+                    "-ms-overflow-style": "none",
+                    "scrollbar-width": "none",
                 }}
             >
                 {platforms.map((platform) => (
