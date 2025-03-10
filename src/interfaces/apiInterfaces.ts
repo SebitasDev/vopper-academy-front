@@ -17,5 +17,5 @@ export interface Course {
     title: string;
     categories: string[];
     teacher: string;
-    imgaeUrl: string;
+    imageUrl: string;
 }

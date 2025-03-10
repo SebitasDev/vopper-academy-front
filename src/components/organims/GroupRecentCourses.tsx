@@ -1,19 +1,14 @@
 ﻿import {Box, IconButton} from "@mui/material";
 import {ChevronLeft, ChevronRight} from "@mui/icons-material";
 import {useRef} from "react";
-import RecentCourseAdd from "./RecentCourseAdd.tsx";
+import RecentCourseAdd from "../molecules/RecentCourseAdd.tsx";
+import useRecentCourses from "../../hooks/recentCourses-hooks/useRecentCourses.ts";
 
-const platforms = [
-    { id: 1, name: "PlayStation", urlImage: "https://i.postimg.cc/W4jSzpzs/istockphoto-2099403180-1024x1024.jpg" },
-    { id: 2, name: "Xbox", urlImage: "https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_67b8922cedc7cf98f9ea9d4e_67b8922cedc7cf98f9ea9d5f_70s.jpg" },
-    { id: 3, name: "Nintendo", urlImage: "https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_67b8917a2f81b177350b3594_67b8917a2f81b177350b35a3_80s.jpg" },
-    { id: 4, name: "PC", urlImage: "https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_67b892e34a6cae3c507abda6_67b892e34a6cae3c507abdb7_77s.jpg" },
-    { id: 5, name: "Steam", urlImage: "https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_67b89397a9abb177458528f1_67b89397a9abb17745852902_82s.jpg" },
-    { id: 6, name: "Epic Games", urlImage: "https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_67b89446edc7cf98f9ebd68e_67b89446edc7cf98f9ebd69f_67s.jpg" },
-    { id: 7, name: "Mobile", urlImage: "https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_67b89442edc7cf98f9ebd5de_67b89442edc7cf98f9ebd5ef_38s.jpg" },
-];
+
 
 const GroupRecentCourses = () => {
+
+    const { lastCourses } = useRecentCourses();
 
     const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -30,7 +25,7 @@ const GroupRecentCourses = () => {
     return (
         <Box sx={{
             position: "relative",
-            width: "100%",
+            width: "auto",
             maxWidth: 1100,
             height: 300,
         }}>
@@ -51,8 +46,11 @@ const GroupRecentCourses = () => {
                     "scrollbar-width": "none",
                 }}
             >
-                {platforms.map((platform) => (
-                    <RecentCourseAdd key={platform.id}/>
+                {lastCourses?.map((course) => (
+                    <RecentCourseAdd
+                        course={course}
+                        key={course.id}
+                    />
                 ))}
             </Box>
 
