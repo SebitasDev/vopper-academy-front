@@ -1,6 +1,7 @@
 ﻿import PlatformsHome from "../organims/PlatformsHome.tsx";
 import MainLayout from "../templates/MainLayout.tsx";
 import GroupRecentCourses from "../organims/GroupRecentCourses.tsx";
+import InterestingCategories from "../organims/InterestingCategories.tsx";
 
 const Home = () => {
 
@@ -9,6 +10,7 @@ const Home = () => {
         <MainLayout>
             <PlatformsHome/>
             <GroupRecentCourses/>
+            <InterestingCategories/>
         </MainLayout>
     )
 }
