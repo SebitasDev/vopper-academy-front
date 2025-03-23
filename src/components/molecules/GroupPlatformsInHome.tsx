@@ -30,7 +30,8 @@ const GroupPlatformsInHome = () => {
                         name={platform.name}
                         key={platform.id}
                     />
-                ))}
+                ))
+            }
         </Box>
     );
 };

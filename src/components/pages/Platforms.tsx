@@ -1,12 +1,13 @@
-﻿import Sidebar from "../organims/Sidebar.tsx";
+﻿import MainLayout from "../templates/MainLayout.tsx";
+import AllPlatforms from "../organims/AllPlatforms.tsx";
 
 const Platforms = () => {
 
 
     return (
-        <>
-            <Sidebar/>
-        </>
+        <MainLayout>
+            <AllPlatforms/>
+        </MainLayout>
     )
 }
 
