@@ -2,13 +2,13 @@
 import InformatinRecentCourse from "../atoms/InformatinRecentCourse.tsx";
 import BatchCourse from "../atoms/BatchCourse.tsx";
 import {Box} from "@mui/material";
-import {Course} from "../../interfaces/apiInterfaces.ts";
+import {Course as CourseApi} from "../../interfaces/apiInterfaces.ts";
 
 type props = {
-    course: Course
+    course: CourseApi
 }
 
-const RecentCourseAdd = ( { course } : props ) => {
+const Course = ( { course } : props ) => {
 
     return (
         <Box
@@ -23,4 +23,4 @@ const RecentCourseAdd = ( { course } : props ) => {
     )
 }
 
-export default RecentCourseAdd;
+export default Course;

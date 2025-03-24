@@ -1,7 +1,7 @@
 ﻿import {Box, IconButton, Typography} from "@mui/material";
 import {ChevronLeft, ChevronRight} from "@mui/icons-material";
 import {useRef} from "react";
-import RecentCourseAdd from "../molecules/RecentCourseAdd.tsx";
+import Course from "../molecules/Course.tsx";
 import useRecentCourses from "../../hooks/recentCourses-hooks/useRecentCourses.ts";
 import {theme} from "../../styles/theme.ts";
 
@@ -69,7 +69,7 @@ const GroupRecentCourses = () => {
                     }}
                 >
                     {lastCourses?.map((course) => (
-                        <RecentCourseAdd
+                        <Course
                             course={course}
                             key={course.id}
                         />
