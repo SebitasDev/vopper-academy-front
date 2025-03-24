@@ -27,7 +27,7 @@ const GroupOptionsInMenu = () => {
                     { name: "Inicio", icon: <Home sx={{ color: "white" }} /> },
                     { name: "Plataformas", icon: <ViewInArIcon sx={{ color: "white" }} /> },
                     { name: "Cursos", icon: <VideoLibraryIcon sx={{ color: "white" }} /> },
-                    { name: "Categorías", icon: <FolderCopyIcon sx={{ color: "white" }} /> },
+                    { name: "Categorias", icon: <FolderCopyIcon sx={{ color: "white" }} /> }, //Ya se que categorioas va con acento pero no enruta correctamente
                 ].map(({ name, icon }) => (
                     <OptionMenu key={name} name={name} icon={icon} />
                 ))}

@@ -2,6 +2,7 @@
 import Home from "../components/pages/Home.tsx";
 import {TanStackRouterDevtools} from "@tanstack/router-devtools";
 import Platforms from "../components/pages/Platforms.tsx";
+import Categories from "../components/pages/Categories.tsx";
 
 const rootRoute = createRootRoute({
     component: () => (
@@ -24,6 +25,12 @@ const platformsRoute = createRoute({
     component: Platforms
 });
 
+const CategoriesRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/categorias',
+    component: Categories
+})
+
 const notFoundRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '*',
@@ -37,6 +44,7 @@ const notFoundRoute = createRoute({
 const routeTree = rootRoute.addChildren([
     homeRoute,
     platformsRoute,
+    CategoriesRoute,
     notFoundRoute
 ]);
 

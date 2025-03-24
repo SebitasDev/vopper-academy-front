@@ -1,0 +1,2 @@
+popup inicio/diseño, GET api/courses{id}
+categorias, GET (aun no hay backend)
