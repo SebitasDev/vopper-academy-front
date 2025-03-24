@@ -26,9 +26,7 @@ const GroupPlatformsInHome = () => {
             {platformsQuery.data?.slice(0, itemsToShow)
                 .map((platform) => (
                     <IconPlatformHome
-                        imageUrl={platform.urlImage}
-                        name={platform.name}
-                        key={platform.id}
+                        platform={platform}
                     />
                 ))
             }

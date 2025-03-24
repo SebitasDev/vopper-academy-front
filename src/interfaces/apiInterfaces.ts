@@ -19,3 +19,7 @@ export interface Course {
     teacher: string;
     imageUrl: string;
 }
+
+export interface CourseByPlatform {
+    filterCourses: Course[];
+}
