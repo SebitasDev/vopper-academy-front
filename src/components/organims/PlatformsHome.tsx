@@ -1,7 +1,10 @@
-﻿import {Box, Typography} from "@mui/material";
+﻿import {Box, Button, Typography} from "@mui/material";
 import GroupPlatformsInHome from "../molecules/GroupPlatformsInHome.tsx";
+import {useNavigate} from "@tanstack/react-router";
 
 const PlatformsHome = () => {
+
+    const navigate = useNavigate();
 
     return (
         <Box
@@ -28,16 +31,18 @@ const PlatformsHome = () => {
                     Plataformas
                 </Typography>
 
-                <Typography
-                    variant="body2"
-                    sx={{
-                        cursor: "pointer",
-                        color: "gray",
-                        borderBottom: "1px solid gray",
-                        marginRight: "5px"
-                    }}>
-                    Ver más
-                </Typography>
+                <Button onClick={() => navigate({ to: '/plataformas' })}>
+                    <Typography
+                        variant="body2"
+                        sx={{
+                            cursor: "pointer",
+                            color: "gray",
+                            borderBottom: "1px solid gray",
+                            marginRight: "5px"
+                        }}>
+                        Ver más
+                    </Typography>
+                </Button>
             </Box>
 
             <GroupPlatformsInHome/>

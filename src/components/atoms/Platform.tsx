@@ -1,12 +1,15 @@
 ﻿import {Box, Button, Typography} from "@mui/material";
 import {Platform as PlatformInterface} from "../../interfaces/apiInterfaces.ts";
 import {theme} from "../../styles/theme.ts";
+import {usePlatforms} from "../../hooks/platforms-hooks/usePlatforms.ts";
 
 type props = {
     platform: PlatformInterface
 }
 
 const Platform = ({ platform } : props) => {
+
+    const { goToPlatformById } = usePlatforms();
 
     return (
         <Box
@@ -63,6 +66,7 @@ const Platform = ({ platform } : props) => {
             </Typography>
 
             <Button
+                onClick={() => goToPlatformById(platform) }
                 sx={{
                     width: "70%",
                     mx: "auto",

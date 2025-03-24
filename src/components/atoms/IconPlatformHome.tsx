@@ -1,15 +1,18 @@
 ﻿import {Box, Typography} from "@mui/material";
+import {Platform} from "../../interfaces/apiInterfaces.ts";
+import {usePlatforms} from "../../hooks/platforms-hooks/usePlatforms.ts";
 
 type props = {
-    imageUrl: string;
-    name: string;
+    platform: Platform
 }
 
-const IconPlatformHome = ( { imageUrl, name } : props ) => {
+const IconPlatformHome = ( { platform } : props ) => {
 
+    const { goToPlatformById } = usePlatforms()
 
     return (
         <Box
+            onClick={() => goToPlatformById(platform)}
             sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -21,7 +24,7 @@ const IconPlatformHome = ( { imageUrl, name } : props ) => {
 
             <Box
                 component="img"
-                src={imageUrl}
+                src={platform.urlImage}
                 sx={{
                     borderRadius: "100%",
                     width: "55px",
@@ -37,7 +40,7 @@ const IconPlatformHome = ( { imageUrl, name } : props ) => {
                     textAlign: "center"
                 }}
             >
-                {name}
+                {platform.name}
             </Typography>
         </Box>
     )
