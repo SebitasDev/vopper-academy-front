@@ -20,6 +20,21 @@ export interface Course {
     imageUrl: string;
 }
 
+interface Chapter {
+    title: string;
+    duration: string;
+    url: string;
+    view: number;
+    imageUrl: string;
+}
+
+export interface CourseById extends Course{
+    chapters: Chapter[];
+    chaptersCount: number;
+    platform: string;
+    date: string;
+}
+
 export interface CourseByPlatform {
     filterCourses: Course[];
 }
