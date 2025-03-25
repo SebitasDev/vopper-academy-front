@@ -1,7 +1,10 @@
 ﻿import {Box, Typography} from "@mui/material";
 import BatchCourse from "../atoms/BatchCourse.tsx";
+import {useVideoPlayer} from "../../hooks/courses-hooks/useVideoPlayer.ts";
 
 const DescriptionVideoPlayer = () => {
+
+    const { course } = useVideoPlayer();
 
     return (
         <Box
@@ -19,7 +22,7 @@ const DescriptionVideoPlayer = () => {
                     lineHeight: 1.2,
                 }}
             >
-                Arquitectura informatica
+                { course.title }
             </Typography>
 
             {/* Nombre del profesor */}
@@ -32,7 +35,7 @@ const DescriptionVideoPlayer = () => {
                     mb: .6
                 }}
             >
-                Por Leonardo Chamorro
+                Por { course.teacher }
             </Typography>
             <BatchCourse/>
         </Box>

@@ -1,8 +1,15 @@
 ﻿import {Box} from "@mui/material";
 import CountChapter from "../atoms/CountChapter.tsx";
 import InfoChapterPreview from "../atoms/InfoChapterPreview.tsx";
+import {Chapter} from "../../interfaces/apiInterfaces.ts";
 
-const ChapterPreview = () => {
+type props = {
+    countNumber: number;
+    chapter: Chapter;
+
+}
+
+const ChapterPreview = ( { countNumber, chapter } : props ) => {
 
     return (
         <Box
@@ -12,8 +19,8 @@ const ChapterPreview = () => {
                 gap: .6,
             }}
         >
-            <CountChapter/>
-            <InfoChapterPreview/>
+            <CountChapter count={countNumber}/>
+            <InfoChapterPreview chapter={chapter}/>
         </Box>
     )
 }

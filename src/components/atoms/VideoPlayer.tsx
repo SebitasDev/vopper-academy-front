@@ -1,6 +1,10 @@
 ﻿import {Box} from "@mui/material";
 
-const VideoPlayer = () => {
+type props = {
+    video: string
+}
+
+const VideoPlayer = ({ video } : props) => {
 
     return (
         <Box
@@ -20,7 +24,7 @@ const VideoPlayer = () => {
             >
                 <Box
                     component="iframe"
-                    src="https://iframe.mediadelivery.net/embed/375405/52338d25-d399-4f61-b7ac-12094fac5bcc?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+                    src={video}
                     loading="lazy"
                     allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
                     allowFullScreen

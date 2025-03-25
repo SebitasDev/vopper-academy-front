@@ -3,9 +3,11 @@ import {Box, useTheme} from "@mui/material";
 import VideoPlayer from "../atoms/VideoPlayer.tsx";
 import InformationVideoPlayer from "../organims/InformationVideoPlayer.tsx";
 import ListOfChapters from "../organims/ListOfChapters.tsx";
+import {useVideoPlayer} from "../../hooks/courses-hooks/useVideoPlayer.ts";
 
 const WatchCourse = () => {
 
+    const { course } = useVideoPlayer();
     const themeMUI = useTheme();
 
     return (
@@ -31,8 +33,8 @@ const WatchCourse = () => {
                     }
                 }}
             >
-                <VideoPlayer/>
-                <ListOfChapters/>
+                <VideoPlayer video={course.chapters[0].url}/>
+                <ListOfChapters chapters={course.chapters}/>
                 <InformationVideoPlayer/>
             </Box>
         </MainLayout>
