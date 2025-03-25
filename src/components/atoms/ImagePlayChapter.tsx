@@ -1,6 +1,6 @@
 ﻿import {Box} from "@mui/material";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import {useNavigate} from "@tanstack/react-router";
+import {useVideoPlayer} from "../../hooks/courses-hooks/useVideoPlayer.ts";
 
 type props = {
     imageUrl: string,
@@ -9,12 +9,12 @@ type props = {
 
 const ImagePlayChapter = ( { imageUrl, id } : props ) => {
 
-    const navigate = useNavigate();
+    const { viewCourse } = useVideoPlayer();
 
     return (
         <>
             <Box
-                onClick={() => navigate({ to: `/cursos/${id}` })}
+                onClick={() => viewCourse(id)}
                 sx={{
                     position: "relative",
                     width: "250px",

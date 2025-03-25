@@ -1,6 +1,11 @@
 ﻿import {Box, Typography} from "@mui/material";
+import {Chapter} from "../../interfaces/apiInterfaces.ts";
 
-const InfoChapterPreview = () => {
+type props = {
+    chapter: Chapter
+}
+
+const InfoChapterPreview = ( { chapter } : props ) => {
 
     return (
         <Box
@@ -14,7 +19,7 @@ const InfoChapterPreview = () => {
         >
             <Box
                 component={"img"}
-                src={"https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_678019e9cec9a86e1fa9bf3e_678019e9cec9a86e1fa9bf51_19s.jpg"}
+                src={chapter.imageUrl}
                 sx={{
                     gridArea: "img",
                     width: "50px",
@@ -32,23 +37,24 @@ const InfoChapterPreview = () => {
                     color: "gray",
                     lineHeight: 1.2,
                     mb: 0,
-                    whiteSpace: 'normal', // 🔥 permite saltos de línea
-                    overflowWrap: 'break-word', // 🔥 corta palabras largas si hace falta
-                    wordBreak: 'break-word', // extra: más seguro para palabras largas sin espacios
+                    whiteSpace: 'normal',
+                    overflowWrap: 'break-word',
+                    wordBreak: 'break-word',
+                    fontSize: "15px"
                 }}
             >
-                Dark patterns en e-commerce
+                { chapter.title }
             </Typography>
             <Typography
                 fontWeight={"bold"}
                 sx={{
                     gridArea: "status",
                     color: "#9BA4FD",
-                    lineHeight: 1.2, // 🔥 igual que arriba para coherencia
-                    mt: 0 // opcional: elimina margen superior si existe
+                    lineHeight: 1.2,
+                    mt: 0
                 }}
             >
-                8:08
+                { chapter.duration }
             </Typography>
         </Box>
     )

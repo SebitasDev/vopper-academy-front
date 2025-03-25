@@ -1,7 +1,12 @@
 ﻿import {Box, Typography} from "@mui/material";
 import ChapterPreview from "../molecules/ChapterPreview.tsx";
+import {Chapter} from "../../interfaces/apiInterfaces.ts";
 
-const ListOfChapters = () => {
+type props = {
+    chapters: Chapter[]
+}
+
+const ListOfChapters = ( { chapters }: props ) => {
 
     return (
         <Box
@@ -10,6 +15,8 @@ const ListOfChapters = () => {
                 backgroundColor: "rgba(169, 169, 169, 0.1);",
                 height: "100%",
                 width: "100%",
+                overflow: "hidden",
+                borderRadius: "15px"
             }}
         >
             <Box
@@ -49,16 +56,9 @@ const ListOfChapters = () => {
                         },
                     }}
                 >
-                    <ChapterPreview/>
-                    <ChapterPreview/>
-                    <ChapterPreview/>
-                    <ChapterPreview/>
-                    <ChapterPreview/>
-                    <ChapterPreview/>
-                    <ChapterPreview/>
-                    <ChapterPreview/>
-                    <ChapterPreview/>
-                    <ChapterPreview/>
+                    {chapters.map((chapter, index) => (
+                        <ChapterPreview chapter={chapter} countNumber={index} key={index}/>
+                    ))}
                 </Box>
             </Box>
         </Box>

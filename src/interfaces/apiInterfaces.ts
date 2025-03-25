@@ -20,7 +20,7 @@ export interface Course {
     imageUrl: string;
 }
 
-interface Chapter {
+export interface Chapter {
     title: string;
     duration: string;
     url: string;
