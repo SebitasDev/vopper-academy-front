@@ -1,5 +1,6 @@
 ﻿import {Box} from "@mui/material";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
+import {useNavigate} from "@tanstack/react-router";
 
 type props = {
     imageUrl: string,
@@ -8,9 +9,12 @@ type props = {
 
 const ImagePlayChapter = ( { imageUrl, id } : props ) => {
 
+    const navigate = useNavigate();
+
     return (
         <>
             <Box
+                onClick={() => navigate({ to: `/cursos/${id}` })}
                 sx={{
                     position: "relative",
                     width: "250px",
