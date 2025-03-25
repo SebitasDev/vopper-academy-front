@@ -3,6 +3,7 @@ import Home from "../components/pages/Home.tsx";
 import {TanStackRouterDevtools} from "@tanstack/router-devtools";
 import Platforms from "../components/pages/Platforms.tsx";
 import PlatformDetail from "../components/pages/PlatformDetail.tsx";
+import WatchCourse from "../components/pages/WatchCourse.tsx";
 
 const rootRoute = createRootRoute({
     component: () => (
@@ -31,6 +32,12 @@ const platformById = createRoute({
     component: PlatformDetail
 })
 
+const watchCourse = createRoute({
+    getParentRoute: () => rootRoute,
+    path: '/cursos/$id',
+    component: WatchCourse
+})
+
 const notFoundRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '*',
@@ -45,6 +52,7 @@ const routeTree = rootRoute.addChildren([
     homeRoute,
     platformsRoute,
     platformById,
+    watchCourse,
     notFoundRoute
 ]);
 
