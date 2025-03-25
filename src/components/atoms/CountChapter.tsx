@@ -1,6 +1,10 @@
 ﻿import {Box, Typography, useTheme} from "@mui/material";
 
-const CountChapter = () => {
+type props = {
+    count: number;
+}
+
+const CountChapter = ( { count } : props ) => {
 
     const themeMUI = useTheme();
 
@@ -20,8 +24,13 @@ const CountChapter = () => {
                 }
             }}
         >
-            <Typography>
-                1
+            <Typography
+                fontWeight={"bold"}
+                sx={{
+                    color: "white"
+                }}
+            >
+                { count }
             </Typography>
         </Box>
     )
