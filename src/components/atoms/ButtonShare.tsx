@@ -1,11 +1,15 @@
 ﻿import {Button, Typography} from "@mui/material";
 import RedoIcon from '@mui/icons-material/Redo';
 import {theme} from "../../styles/theme.ts";
+import {useVideoPlayer} from "../../hooks/courses-hooks/useVideoPlayer.ts";
 
 const ButtonShare = () => {
 
+    const { shareCourse } = useVideoPlayer();
+
     return (
         <Button
+            onClick={() => shareCourse()}
             sx={{
                 height: "40px",
                 display: "flex",

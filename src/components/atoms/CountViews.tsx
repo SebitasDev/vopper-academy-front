@@ -4,7 +4,7 @@ import {useVideoPlayer} from "../../hooks/courses-hooks/useVideoPlayer.ts";
 
 const CountViews = () => {
 
-    const { course } = useVideoPlayer();
+    const { currentChapter } = useVideoPlayer();
 
     return (
         <Box
@@ -23,7 +23,7 @@ const CountViews = () => {
             <Typography
                 fontWeight="bold"
             >
-                { course.chapters[0].view ?? 0 } vistas
+                { currentChapter.views ?? 0 } vistas
             </Typography>
         </Box>
     )

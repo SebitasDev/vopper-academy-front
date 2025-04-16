@@ -1,11 +1,13 @@
-﻿import {CourseById, Platform} from "./apiInterfaces.ts";
+﻿import {Chapter, CourseById, Platform} from "./apiInterfaces.ts";
 
 export interface IPlatformStore {
     platform: Platform,
     setPlatform: (platform: Platform) => void,
 }
 
-export interface IPlayerCoursePreview {
+export interface IPlayerCoursePreviewStore {
     course: CourseById,
-    setCourse: (course: CourseById) => void
+    currentChapter: Chapter,
+    setCourse: (course: CourseById) => void,
+    setcurrentChapter: (chapter: Chapter) => void,
 }

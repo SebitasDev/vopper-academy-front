@@ -1,20 +1,25 @@
 ﻿import {Box, Typography} from "@mui/material";
 import {Chapter} from "../../interfaces/apiInterfaces.ts";
+import {useVideoPlayer} from "../../hooks/courses-hooks/useVideoPlayer.ts";
 
 type props = {
-    chapter: Chapter
+    chapter: Chapter,
 }
 
 const InfoChapterPreview = ( { chapter } : props ) => {
 
+    const { setChapterToView, currentChapter, setClickInChapter } = useVideoPlayer();
+
     return (
         <Box
+            onClick={() => { setChapterToView(chapter); setClickInChapter(true) }}
             sx={{
                 display: "grid",
                 gridTemplateRows: "auto",
                 gridTemplateAreas: `"img title" 
                                     "img status"`,
                 gap: 1,
+                cursor: "pointer"
             }}
         >
             <Box
@@ -34,7 +39,7 @@ const InfoChapterPreview = ( { chapter } : props ) => {
                 fontWeight={"bold"}
                 sx={{
                     gridArea: "title",
-                    color: "gray",
+                    color: chapter.chapterId === currentChapter.chapterId ? "green" : "gray",
                     lineHeight: 1.2,
                     mb: 0,
                     whiteSpace: 'normal',
