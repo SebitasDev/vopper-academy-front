@@ -21,10 +21,11 @@ export interface Course {
 }
 
 export interface Chapter {
+    chapterId: string;
     title: string;
     duration: string;
     url: string;
-    view: number;
+    views: number;
     imageUrl: string;
 }
 

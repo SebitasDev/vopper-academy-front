@@ -4,6 +4,7 @@ import VideoPlayer from "../atoms/VideoPlayer.tsx";
 import InformationVideoPlayer from "../organims/InformationVideoPlayer.tsx";
 import ListOfChapters from "../organims/ListOfChapters.tsx";
 import {useVideoPlayer} from "../../hooks/courses-hooks/useVideoPlayer.ts";
+import HelperChapter from "../organims/HelperChapter.tsx";
 
 const WatchCourse = () => {
 
@@ -18,8 +19,9 @@ const WatchCourse = () => {
                     height: "100%",
                     width: "100%",
                     gridTemplateColumns: "75% 25%",
-                    gridTemplateRows: "80% 15%",
-                    gridTemplateAreas: `"video contentTable" 
+                    gridTemplateRows: "10% 77% 13%",
+                    gridTemplateAreas: `"helperChapter helperChapter"
+                                        "video contentTable" 
                                         "infoVideo contentTable"`,
                     [themeMUI.breakpoints.down("md")]: {
                         gridTemplateColumns: "100%",
@@ -27,13 +29,15 @@ const WatchCourse = () => {
                         gridTemplateAreas: `"video" 
                                             "infoVideo"
                                             "contentTable"`,
+                        gap: 2,
                     },
                     [themeMUI.breakpoints.down("sm")]: {
                         gridTemplateRows: "40% 20% 40%",
                     }
                 }}
             >
-                <VideoPlayer video={course.chapters[0].url}/>
+                <HelperChapter/>
+                <VideoPlayer/>
                 <ListOfChapters chapters={course.chapters}/>
                 <InformationVideoPlayer/>
             </Box>

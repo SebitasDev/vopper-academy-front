@@ -1,10 +1,9 @@
 ﻿import {Box} from "@mui/material";
+import {useVideoPlayer} from "../../hooks/courses-hooks/useVideoPlayer.ts";
 
-type props = {
-    video: string
-}
+const VideoPlayer = () => {
 
-const VideoPlayer = ({ video } : props) => {
+    const { currentChapter } = useVideoPlayer();
 
     return (
         <Box
@@ -24,7 +23,7 @@ const VideoPlayer = ({ video } : props) => {
             >
                 <Box
                     component="iframe"
-                    src={video}
+                    src={currentChapter.url}
                     loading="lazy"
                     allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
                     allowFullScreen
